@@ -1,6 +1,6 @@
-# AIMAC STUDIO Beauty — Landing (Fase 0)
+# AIMAC STUDIO Beauty — Landing (Fase 1)
 
-Sitio estático: HTML + CSS + JS, sin dependencias ni build. Costo: $0 (más dominio).
+Sitio estático: HTML + CSS + JS, sin dependencias ni build.
 
 ## Probar en local
     cd aimac-landing && python3 -m http.server 8080   # abrir http://localhost:8080
