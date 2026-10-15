@@ -309,3 +309,52 @@ footer{background:var(--cocoa);color:#E6D9CC;padding:3.5rem 0 6rem}
 .hero-deposit{display:flex;align-items:center;gap:.7rem;margin:1.2rem 0 0;font-size:.95rem;color:var(--muted)}
 .hero-deposit span{color:var(--gold)}
 .hero-deposit strong{color:var(--cocoa);font-weight:500}
+
+
+/* ===== Fotos del formulario — pegar al final de styles.css ===== */
+
+.photo-field{margin-bottom:1.3rem}
+.photo-title{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold-deep);font-weight:500;margin-bottom:.4rem}
+.photo-title em{font-style:normal;color:var(--rose-deep)}
+.photo-help{margin:0 0 .9rem;font-size:.9rem;color:var(--muted)}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.photo-slot{position:relative;aspect-ratio:1}
+
+/* El input ocupa todo el recuadro, invisible, para que todo sea clicable y accesible por teclado */
+.photo-input{position:absolute;inset:0;width:100%;height:100%;min-height:0;padding:0;border:0;opacity:0;cursor:pointer;z-index:2}
+.photo-input:focus-visible + .photo-drop{outline:2px solid var(--rose-deep);outline-offset:3px}
+
+.photo-drop{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;padding:.5rem;text-align:center;border:1px dashed var(--gold);border-radius:var(--r);background:var(--ivory);color:var(--gold-deep);transition:background .25s,border-color .25s}
+.photo-slot:hover .photo-drop{background:var(--cream);border-color:var(--rose-deep)}
+.photo-plus{font-family:var(--serif);font-size:2rem;line-height:1}
+.photo-txt{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;line-height:1.25}
+
+.photo-prev{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:1px solid var(--line);border-radius:var(--r);pointer-events:none}
+.photo-slot.has-photo .photo-drop{visibility:hidden}
+.photo-del{position:absolute;top:6px;right:6px;z-index:3;width:36px;height:36px;border:0;border-radius:50%;background:rgba(42,32,27,.8);color:#fff;font-size:1.3rem;line-height:1;cursor:pointer}
+.photo-del:hover{background:var(--rose-deep)}
+.photo-slot.is-loading .photo-drop{opacity:.55}
+.photo-slot.is-loading .photo-txt::after{content:"…"}
+
+/* Casilla de consentimiento */
+.check{display:flex;align-items:flex-start;gap:.7rem;text-transform:none;letter-spacing:0;font-size:.9rem;font-weight:400;color:var(--ink);cursor:pointer}
+.check input[type="checkbox"]{flex:none;width:22px;height:22px;min-height:0;padding:0;margin-top:.1rem;accent-color:var(--rose-deep)}
+.check a{color:var(--gold-deep)}
+
+/* Botón mientras sube las fotos */
+.btn[disabled]{opacity:.65;cursor:wait}
+
+/* Aviso "listo para WhatsApp" */
+.ready{margin-top:1.2rem;padding:1.2rem 1.3rem;background:var(--cream);border:1px solid var(--line);border-left:3px solid var(--wa);border-radius:var(--r)}
+.ready p{margin:0 0 1rem}
+.ready .btn{width:100%}
+
+@media (max-width:400px){
+  .photo-grid{gap:.5rem}
+  .photo-txt{font-size:.62rem;letter-spacing:.08em}
+}
+
+/* Que "hidden" siempre oculte, aunque otra regla defina display */
+.photo-prev[hidden],
+.photo-del[hidden],
+.ready[hidden]{display:none}
