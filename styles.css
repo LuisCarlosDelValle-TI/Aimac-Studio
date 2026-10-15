@@ -86,18 +86,138 @@ section{padding:clamp(4rem,9vw,7rem) 0}
 .sec-head p{color:var(--muted);margin:1rem 0 0}
 .alt{background:var(--cream)}
 
-/* Servicios */
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.svc{background:var(--ivory);padding:2.2rem 2rem 2rem;display:flex;flex-direction:column;gap:.8rem;transition:background .3s}
-.svc:hover{background:#fff}
-.svc .n{font-family:var(--serif);font-size:1.1rem;color:var(--gold-deep);letter-spacing:.2em}
-.svc p{margin:0;color:var(--muted);font-size:1rem;flex:1}
-.svc a{font-size:.76rem;text-transform:uppercase;letter-spacing:.18em;color:var(--rose-deep);text-decoration:none;font-weight:500;padding:.4rem 0;align-self:flex-start;border-bottom:1px solid transparent}
-.svc a:hover{border-color:var(--rose-deep)}
-.price-note{margin-top:1.6rem;color:var(--muted);font-size:.95rem;display:flex;gap:.7rem;align-items:flex-start}
-.price-note::before{content:"✦";color:var(--gold)}
+/* ===== Servicios — AIMAC STUDIO Beauty =====
+   Pegar al final de styles.css (sobrescribe estilos previos de .svc) */
 
-/* Pasos */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+  align-items:stretch;
+}
+
+.services .svc{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding:34px 30px 28px;
+  background:#FCFAF9;
+  border:1px solid rgba(184,147,90,.35);
+  border-radius:4px;
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+/* filete dorado superior que aparece al pasar el cursor */
+.services .svc::before{
+  content:"";
+  position:absolute;
+  top:-1px; left:30px; right:30px;
+  height:2px;
+  background:linear-gradient(90deg,#B8935A,#C98F7B);
+  transform:scaleX(.25);
+  transform-origin:left;
+  transition:transform .45s ease;
+}
+
+.services .svc:hover,
+.services .svc:focus-within{
+  transform:translateY(-4px);
+  border-color:#B8935A;
+  box-shadow:0 18px 40px -22px rgba(42,32,27,.35);
+}
+.services .svc:hover::before,
+.services .svc:focus-within::before{ transform:scaleX(1); }
+
+.services .svc .n{
+  font-family:"Cormorant Garamond",serif;
+  font-size:2.4rem;
+  line-height:1;
+  font-weight:500;
+  color:#C98F7B;
+  letter-spacing:.04em;
+}
+
+.services .svc h3{
+  margin:0;
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.75rem;
+  line-height:1.15;
+  font-weight:600;
+  color:#2A201B;
+}
+
+.services .svc p{
+  margin:0;
+  font-family:"Jost",sans-serif;
+  font-size:.98rem;
+  line-height:1.65;
+  color:#3B2F29;
+}
+
+/* etiquetas de sub-servicios */
+.services .svc .tags{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.services .svc .tags li{
+  font-family:"Jost",sans-serif;
+  font-size:.78rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#7E5F30;
+  background:#F6EFE9;
+  border:1px solid #F4D9C6;
+  border-radius:999px;
+  padding:6px 13px;
+  line-height:1.2;
+}
+
+/* enlace Solicitar, siempre abajo de la tarjeta */
+.services .svc a{
+  margin-top:auto;
+  padding-top:10px;
+  align-self:flex-start;
+  font-family:"Jost",sans-serif;
+  font-size:.82rem;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:#7E5F30;
+  border-bottom:1px solid #B8935A;
+  padding-bottom:4px;
+  transition:color .25s ease, border-color .25s ease, letter-spacing .25s ease;
+}
+.services .svc a::after{ content:" →"; }
+.services .svc a:hover,
+.services .svc a:focus-visible{
+  color:#A8685A;
+  border-color:#A8685A;
+  letter-spacing:.22em;
+}
+.services .svc a:focus-visible{ outline:2px solid #B8935A; outline-offset:4px; }
+
+/* la tarjeta de Diseños de color tiene más contenido: ocupa 2 columnas en pantallas grandes */
+@media (min-width:980px){
+  .services .svc:nth-child(4){ grid-column:span 2; }
+}
+
+@media (max-width:520px){
+  .services .svc{ padding:28px 22px 24px; }
+  .services .svc h3{ font-size:1.55rem; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .services .svc,
+  .services .svc::before,
+  .services .svc a{ transition:none; }
+  .services .svc:hover{ transform:none; }
+}/* Pasos */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;counter-reset:s;list-style:none;padding:0;margin:0}
 .steps li{counter-increment:s;position:relative;padding-top:4.2rem}
 .steps li::before{content:counter(s,decimal-leading-zero);position:absolute;top:0;left:0;font-family:var(--serif);font-size:3.6rem;line-height:1;color:var(--peony);-webkit-text-stroke:1px var(--gold)}
@@ -180,3 +300,7 @@ footer{background:var(--cocoa);color:#E6D9CC;padding:3.5rem 0 6rem}
   .cta-row .btn{width:100%}
   .brand span{font-size:1.25rem}
 }
+
+.hero-deposit{display:flex;align-items:center;gap:.7rem;margin:1.2rem 0 0;font-size:.95rem;color:var(--muted)}
+.hero-deposit span{color:var(--gold)}
+.hero-deposit strong{color:var(--cocoa);font-weight:500}
