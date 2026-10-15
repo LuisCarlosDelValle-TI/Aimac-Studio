@@ -354,7 +354,22 @@ footer{background:var(--cocoa);color:#E6D9CC;padding:3.5rem 0 6rem}
   .photo-txt{font-size:.62rem;letter-spacing:.08em}
 }
 
-/* Que "hidden" siempre oculte, aunque otra regla defina display */
-.photo-prev[hidden],
-.photo-del[hidden],
-.ready[hidden]{display:none}
+/* ===== Ventana de aviso (modal) — pegar al final de styles.css ===== */
+
+.modal{width:100%;max-width:min(520px,calc(100% - 32px));margin:auto;padding:0;border:0;background:transparent;color:var(--ink)}
+.modal::backdrop{background:rgba(42,32,27,.6);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.modal[open]{animation:modalIn .3s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.modal-box{background:var(--ivory);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:var(--r);padding:clamp(1.6rem,5vw,2.4rem);box-shadow:var(--shadow)}
+.modal-box .eyebrow{margin-bottom:.9rem}
+.modal-box h3{margin:0 0 .9rem}
+.modal-box p{margin:0 0 .9rem}
+.modal-hint{color:var(--muted);font-size:.95rem}
+.modal-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem}
+.modal-actions .btn{flex:1 1 200px}
+
+/* Evita que la página se desplace detrás de la ventana */
+body:has(.modal[open]){overflow:hidden}
+
+@media (prefers-reduced-motion:reduce){.modal[open]{animation:none}}

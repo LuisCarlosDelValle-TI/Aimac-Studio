@@ -248,54 +248,16 @@
             <textarea id="notas" name="notas" maxlength="400"
               placeholder="Largo del cabello, tipo de evento, referencias…"></textarea>
           </div>
-
-          <div class="field photo-field">
-            <span class="photo-title" id="fotos-titulo">Tu foto <em>(obligatoria)</em></span>
-            <p class="photo-help" id="fotos-ayuda">Sube una foto tuya, de frente y con buena luz, para que podamos valorar tu servicio. Puedes agregar hasta 2 fotos más, por ejemplo de referencia.</p>
-            <div class="photo-grid" role="group" aria-labelledby="fotos-titulo" aria-describedby="fotos-ayuda">
-              <div class="photo-slot">
-                <input class="photo-input" id="foto1" name="foto1" type="file" accept="image/*" aria-label="Tu foto (obligatoria)" required>
-                <div class="photo-drop" aria-hidden="true"><span class="photo-plus">+</span><span class="photo-txt">Tu foto</span></div>
-                <img class="photo-prev" alt="Vista previa de tu foto" hidden>
-                <button class="photo-del" type="button" aria-label="Quitar tu foto" hidden>×</button>
-              </div>
-              <div class="photo-slot">
-                <input class="photo-input" id="foto2" name="foto2" type="file" accept="image/*" aria-label="Foto adicional 1 (opcional)">
-                <div class="photo-drop" aria-hidden="true"><span class="photo-plus">+</span><span class="photo-txt">Opcional</span></div>
-                <img class="photo-prev" alt="Vista previa de la foto adicional 1" hidden>
-                <button class="photo-del" type="button" aria-label="Quitar foto adicional 1" hidden>×</button>
-              </div>
-              <div class="photo-slot">
-                <input class="photo-input" id="foto3" name="foto3" type="file" accept="image/*" aria-label="Foto adicional 2 (opcional)">
-                <div class="photo-drop" aria-hidden="true"><span class="photo-plus">+</span><span class="photo-txt">Opcional</span></div>
-                <img class="photo-prev" alt="Vista previa de la foto adicional 2" hidden>
-                <button class="photo-del" type="button" aria-label="Quitar foto adicional 2" hidden>×</button>
-              </div>
-            </div>
-            <span class="err" data-err="fotos" aria-live="polite"></span>
-          </div>
-
-          <div class="field">
-            <label class="check">
-              <input type="checkbox" id="consent" name="consent" required>
-              <span>Acepto que AIMAC STUDIO use mis fotos solo para valorar mi servicio y las conserve hasta 30 días después de mi cita. <a href="aviso-de-privacidad.html" target="_blank" rel="noopener">Aviso de privacidad</a></span>
-            </label>
-            <span class="err" data-err="consent" aria-live="polite"></span>
-          </div>
-
           <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="btn btn--wa" type="submit">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path
                 d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.200-3.400-8.300zM12 21.700c-1.800 0-3.500-.5-5-1.400l-.4-.2-3.800 1 1-3.700-.2-.4a9.800 9.800 0 0 1-1.500-5.100C2.100 6.500 6.600 2 12 2c2.600 0 5.100 1 6.900 2.900a9.700 9.700 0 0 1 2.900 6.900c0 5.400-4.400 9.900-9.800 9.900zm5.400-7.400c-.3-.1-1.800-.9-2-1-.3-.1-.5-.1-.7.100l-.9 1.100c-.2.200-.3.200-.6.100-1.700-.8-2.800-1.500-3.900-3.400-.3-.5.300-.5.900-1.600.1-.2 0-.4 0-.5l-.9-2.200c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 1.800.8 2.500.8 3.400.7.600-.1 1.800-.7 2-1.400.3-.7.300-1.300.2-1.400-.1-.1-.3-.2-.6-.3z" />
             </svg>
-            <span id="submit-text">Enviar solicitud por WhatsApp</span>
+            Enviar solicitud por WhatsApp
           </button>
-          <div class="ready" id="ready" hidden aria-live="polite">
-            <p id="ready-msg"></p>
-            <a class="btn btn--wa" id="open-wa" href="#" target="_blank" rel="noopener">Abrir WhatsApp y enviar</a>
-          </div>
-          <p class="form-note">Tus fotos se suben por conexión cifrada, solo se usan para valorar tu servicio y se eliminan 30 días después de tu cita. Tus demás datos viajan por WhatsApp y no se guardan en este sitio. Consulta el <a href="aviso-de-privacidad.html">aviso de privacidad</a>.</p>
+          <p class="form-note">Al enviar, se abrirá WhatsApp con tus datos. No guardamos información en este sitio.
+            Consulta el <a href="aviso-de-privacidad.html">aviso de privacidad</a>.</p>
         </form>
       </div>
     </section>
@@ -402,6 +364,19 @@
         d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.200-3.400-8.300zM12 21.700c-1.800 0-3.500-.5-5-1.400l-.4-.2-3.800 1 1-3.700-.2-.4a9.800 9.800 0 0 1-1.500-5.100C2.100 6.500 6.600 2 12 2c2.600 0 5.100 1 6.900 2.900a9.700 9.700 0 0 1 2.900 6.900c0 5.400-4.400 9.900-9.800 9.900zm5.400-7.400c-.3-.1-1.800-.9-2-1-.3-.1-.5-.1-.7.100l-.9 1.100c-.2.200-.3.200-.6.100-1.700-.8-2.800-1.500-3.900-3.400-.3-.5.300-.5.900-1.600.1-.2 0-.4 0-.5l-.9-2.200c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 1.800.8 2.500.8 3.400.7.600-.1 1.800-.7 2-1.400.3-.7.300-1.300.2-1.400-.1-.1-.3-.2-.6-.3z" />
     </svg>
   </a>
+
+  <dialog class="modal" id="aviso-modal" aria-labelledby="aviso-titulo" aria-describedby="aviso-texto">
+    <div class="modal-box">
+      <p class="eyebrow">Antes de continuar</p>
+      <h3 id="aviso-titulo"></h3>
+      <p id="aviso-texto"></p>
+      <p class="modal-hint" id="aviso-hint"></p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn--wa" id="aviso-ok">Entendido, abrir WhatsApp</button>
+        <button type="button" class="btn btn--ghost" id="aviso-cancel">Volver al formulario</button>
+      </div>
+    </div>
+  </dialog>
 
   <script src="main.js" defer></script>
 </body>
