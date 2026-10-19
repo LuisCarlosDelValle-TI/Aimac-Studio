@@ -174,3 +174,14 @@ if ("IntersectionObserver" in window) {
 } else rv.forEach(el => el.classList.add("in"));
 
 $("#year").textContent = new Date().getFullYear();
+
+/* Navegación: marca la sección visible (aria-current) */
+const navLinks = $$('#menu a[href^="#"]:not(.btn)');
+const spyTargets = navLinks.map(a => ({ a, el: $(a.getAttribute("href")) })).filter(t => t.el);
+if ("IntersectionObserver" in window && spyTargets.length) {
+  const spy = new IntersectionObserver((entries) => entries.forEach(en => {
+    const t = spyTargets.find(x => x.el === en.target);
+    if (t) en.isIntersecting ? t.a.setAttribute("aria-current", "true") : t.a.removeAttribute("aria-current");
+  }), { rootMargin: "-45% 0px -50% 0px" });
+  spyTargets.forEach(t => spy.observe(t.el));
+}

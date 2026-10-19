@@ -9,6 +9,10 @@ Sitio estático: HTML + CSS + JS, sin dependencias ni build.
 - Textos, servicios y FAQ: `index.html`
 - WhatsApp, horario, días cerrados: objeto `CONFIG` al inicio de `main.js`
 - Colores: variables `:root` en `styles.css`
+- Fotos: el rediseño trae ilustraciones de respaldo en `assets/img/*.svg`. Para usar fotos reales, guarda
+  tu imagen en `assets/img/` y en `styles.css` (bloque `FOTOGRAFÍAS` de `:root`) cambia, por ejemplo,
+  `--photo-hero:none;` por `--photo-hero:url("assets/img/hero.jpg");`. Variables: `--photo-hero`, `--photo-banner`,
+  `--photo-cortes`, `--photo-maquillaje`, `--photo-peinados`, `--photo-color`, `--photo-permanentes`, `--photo-keratinas`.
 
 ## Publicar gratis (Cloudflare Pages)
 1. Subir esta carpeta a un repositorio de GitHub.
